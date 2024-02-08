@@ -1,42 +1,37 @@
 Python Strings
-Strings
-Strings in python are surrounded by either single quotation marks, or double quotation marks.
+  Strings
+  Strings in python are surrounded by either single quotation marks, or double quotation marks.
+    'hello' is the same as "hello".
 
-'hello' is the same as "hello".
-
-You can display a string literal with the print() function:
-
-Example
-print("Hello")
-print('Hello')
+  You can display a string literal with the print() function:
+  Example:
+    print("Hello")
+    print('Hello')
 
 Assign String to a Variable
-Assigning a string to a variable is done with the variable name followed by an equal sign and the string:
-
-Example
-a = "Hello"
-print(a)
-
+  Assigning a string to a variable is done with the variable name followed by an equal sign and the string:
+  Example:
+    a = "Hello"
+    print(a)
+ 
 Multiline Strings
-You can assign a multiline string to a variable by using three quotes:
+  You can assign a multiline string to a variable by using three quotes:
+  Example
+    You can use three double quotes:
+    a = """Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua."""
+    print(a)
 
-Example
-You can use three double quotes:
+  Or three single quotes:
 
-a = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua."""
-print(a)
-
-Or three single quotes:
-
-Example
-a = '''Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua.'''
-print(a)
+  Example
+    a = '''Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua.'''
+    print(a)
 
 
 
@@ -44,43 +39,275 @@ print(a)
 Python - Slicing Strings
 Slicing
 You can return a range of characters by using the slice syntax.
-
 Specify the start index and the end index, separated by a colon, to return a part of the string.
-
-Example
-Get the characters from position 2 to position 5 (not included):
-
-b = "Hello, World!"
-print(b[2:5])
+  Example
+    Get the characters from position 2 to position 5 (not included):    
+    b = "Hello, World!"
+    print(b[2:5])
 
 Slice From the Start
-By leaving out the start index, the range will start at the first character:
-
-Example
-Get the characters from the start to position 5 (not included):
-
-b = "Hello, World!"
-print(b[:5])
-
+  By leaving out the start index, the range will start at the first character:  
+  Example
+    Get the characters from the start to position 5 (not included):
+    b = "Hello, World!"
+    print(b[:5])
+    
 Slice To the End
-By leaving out the end index, the range will go to the end:
+  By leaving out the end index, the range will go to the end: 
+  Example
+    Get the characters from position 2, and all the way to the end:
+    b = "Hello, World!"
+    print(b[2:])
+  Negative Indexing
+  Use negative indexes to start the slice from the end of the string:
+  Example
+  Get the characters:
+    From: "o" in "World!" (position -5)
+    To, but not included: "d" in "World!" (position -2):
+    b = "Hello, World!"
+    print(b[-5:-2])
 
-Example
-Get the characters from position 2, and all the way to the end:
 
-b = "Hello, World!"
-print(b[2:])
-Negative Indexing
-Use negative indexes to start the slice from the end of the string:
-Example
-Get the characters:
 
-From: "o" in "World!" (position -5)
 
-To, but not included: "d" in "World!" (position -2):
+Python - Modify Strings
+Python has a set of built-in methods that you can use on strings.
 
-b = "Hello, World!"
-print(b[-5:-2])
+  Upper Case
+  Example
+  The upper() method returns the string in upper case:
+    a = "Hello, World!"
+    print(a.upper())
+  
+  Lower Case
+  Example
+    The lower() method returns the string in lower case:
+    a = "Hello, World!"
+    print(a.lower())
+  
+  Remove Whitespace
+  Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
+  Example
+    The strip() method removes any whitespace from the beginning or the end:
+    a = " Hello, World! "
+    print(a.strip()) # returns "Hello, World!"
+  
+  Replace String
+  Example
+    The replace() method replaces a string with another string:   
+    a = "Hello, World!"
+    print(a.replace("H", "J"))
+  
+  Split String
+    The split() method returns a list where the text between the specified separator becomes the list items.
+    Example
+    The split() method splits the string into substrings if it finds instances of the separator:  
+      a = "Hello, World!"
+      print(a.split(",")) # returns ['Hello', ' World!']
+
+
+
+
+Python - Format - Strings
+String Format
+As we learned in the Python Variables chapter, we cannot combine strings and numbers like this:
+  Example
+    age = 36
+    txt = "My name is John, I am " + age
+    print(txt)
+But we can combine strings and numbers by using the format() method!
+The format() method takes the passed arguments, formats them, and places them in the string where the placeholders {} are:
+  Example
+  Use the format() method to insert numbers into strings:   
+    age = 36
+    txt = "My name is John, and I am {}"
+    print(txt.format(age))
+The format() method takes unlimited number of arguments, and are placed into the respective placeholders:
+  Example
+    quantity = 3
+    itemno = 567
+    price = 49.95
+    myorder = "I want {} pieces of item {} for {} dollars."
+    print(myorder.format(quantity, itemno, price))
+You can use index numbers {0} to be sure the arguments are placed in the correct placeholders:
+  Example
+    quantity = 3
+    itemno = 567
+    price = 49.95
+    myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+    print(myorder.format(quantity, itemno, price))
+
+
+
+
+Python - Escape Characters
+Escape Character
+To insert characters that are illegal in a string, use an escape character.
+An escape character is a backslash \ followed by the character you want to insert.
+An example of an illegal character is a double quote inside a string that is surrounded by double quotes:
+  Example
+  You will get an error if you use double quotes inside a string that is surrounded by double quotes:
+    txt = "We are the so-called "Vikings" from the north."
+    To fix this problem, use the escape character \":
+  Example
+  The escape character allows you to use double quotes when you normally would not be allowed:
+    txt = "We are the so-called \"Vikings\" from the north."
+
+Escape Characters
+Other escape characters used in Python:
+
+  Code	      Result	
+  \'	        Single Quote	
+  \\	        Backslash	
+  \n	        New Line	
+  \r	        Carriage Return	
+  \t	        Tab	
+  \b	        Backspace	
+  \f	        Form Feed	
+  \ooo	      Octal value	
+  \xhh	      Hex value
+
+
+
+Python - String Methods
+  String Methods
+  Python has a set of built-in methods that you can use on strings.
+  Note: All string methods return new values. They do not change the original string.
+
+
+
+Exercise 1:
+    Use the len function to print the length of the string.
+    x = "Hello World"
+    print(len(x))
+
+
+Exercise 2:
+    Get the first character of the string txt.
+    txt = "Hello World"
+    x = txt[0]
+
+
+Exercise 3:
+    Get the characters from index 2 to index 4 (llo).
+    txt = "Hello World"
+    x = txt[2:5]
+
+
+Exercise 4:
+    Return the string without any whitespace at the beginning or the end.
+    txt = " Hello World "
+    x = txt.strip()
+
+
+Exercise 5:
+    Convert the value of txt to upper case.
+    txt = "Hello World"
+    txt = txt.upper()
+
+
+Exercise 6:
+    Convert the value of txt to lower case.
+    txt = "Hello World"
+    txt = txt.lower()
+
+
+Exercise 7:
+    Replace the character H with a J.
+    txt = "Hello World"
+    txt = txt.
+    replace("H", "J")
+
+
+Exercise 8:
+    Insert the correct syntax to add a placeholder for the age parameter.
+    age = 36
+    txt = "My name is John, and I am {}"
+    print(txt.format(age))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
